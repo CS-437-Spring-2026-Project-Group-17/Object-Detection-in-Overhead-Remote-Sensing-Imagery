@@ -1,4 +1,4 @@
-# Project: Object-Detection-in-Overhead-Remote-Sensing-Imagery
+# Project: Object Detection in Overhead Remote Sensing Imagery
 
 ## Group Members
 - Muhammad Yahya Ali (27100160)
