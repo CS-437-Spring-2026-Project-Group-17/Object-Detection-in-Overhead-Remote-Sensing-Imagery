@@ -4,11 +4,11 @@
 
 - [Group Members](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#group-members)
 - [Project Overview](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#project-overview)
-- [Dataset(s)]()
+- [Dataset(s)](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#datasets)
 - [Baseline](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#baseline)
 - [Improvement 1](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#improvement-1)
 - [Improvement 2](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#improvement-2)
-- [Results]()
+- [Results](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#results)
 - [How to Run](https://github.com/CS-437-Spring-2026-Project-Group-17/Object-Detection-in-Overhead-Remote-Sensing-Imagery#how-to-run)
 
 ## Group Members
