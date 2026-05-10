@@ -21,7 +21,7 @@ Identification of tiny objects in overhead imagery from drones and satellites is
 
 Current approaches each address only one of these problems at a time. LGA-YOLO and AUHF-DETR enhance small-object accuracy but need completely annotated data, ShadowFPN-YOLO attains fast inference but overlooks label scarcity and B-FSDet addresses few-shot settings but hasn't undergone testing on drone hardware. No single model tackles all three at the same time.
 
-We suggest a lightweight detector based on YOLOv8m that implements an approach of background-masking training (to stop the model from relying on adjacent clutter), a mechanism of class weighting (to counter the problem of class imbalance) and another layer of detection called P2 head (to get better detection of small objects). The model is evaluated on **VisDrone2019** under both full-data and few-shot regimes, measuring precision, recall, mAP@0.5, mAP@0.5:0.95, FPS, parameter count and GFLOPs.
+We suggest a lightweight detector based on YOLOv8m that implements an approach of background-masking training (to stop the model from relying on adjacent clutter), a mechanism of class weighting (to counter the problem of class imbalance) and another layer of detection called P2 head (to get better detection of small objects). The model is evaluated on **VisDrone2019** under both full-data and few-shot regimes. Precision, recall, mAP@0.5, mAP@0.5:0.95, FPS, parameter count and GFLOPs were used as metrics for evaluation.
 
 ## Dataset(s)
 
@@ -37,15 +37,15 @@ YOLOv8m trained on VisDrone2019 (converted to YOLO format) using pretrained weig
 
 ## Improvement 1
 
-**Baseline + Masking:** While in the process of training, background patches that were chosen randomly were hidden (applied with probability 0.5, 4–8 patches per image, each patch covering 3–10% of image dimensions) while ensuring that object bounding boxes remained protected. This forced the model to focus on characteristics of object rather than background signals like roads and shadows.
+**Baseline + Masking:** During training process, background patches chosen on random basis were hidden (applied with probability 0.5, 4–8 patches per image, each patch covering 3–10% of image dimensions) while making sure that object bounding boxes remained protected. This prompted the model to focus on characteristics of object instead of background signals such as roads and shadows.
 
-**Baseline + Class Weighting:** Classes that are rare (such as awning-tricycle, tricycle, bus etc.) were provided greater emphasis during training to tackle the dataset's class imbalance. This made the model consider errors on classes that are less represented as more significant, prompting it to identify more actual objects.
+**Baseline + Class Weighting:** Classes that occur very less in terms of frequenct (such as awning-tricycle, tricycle, bus etc.) were provided greater emphasis during training to handle the class imbalance issue of the dataset. This made the model consider mistakes on rare classes as more significant, prompting it to identify more actual objects.
 
 ## Improvement 2
 
-**Baseline + P2 Head:** An additional higher-resolution detection layer (P2) was implemented to the YOLOv8m architecture to provide the model with more detailed feature maps for identifying tiny objects. Despite the fact that precision rose from 0.521 to 0.544, recall fell to 0.409 and FPS declined from 48.70 to 40.61 due to a significant increase in computational cost (there was a rise in GFLOPs from 79.32 to 99.00).
+**Baseline + P2 Head:** One more detection layer (P2) that is higher in resolution was incorporated to the YOLOv8m architecture so that the model is given with more detailed feature maps for identifying tiny objects. Although precision jumped from 0.521 to 0.544, recall dropped to 0.409 and FPS fell from 48.70 to 40.61 as an evident increase in computational expense was observed (there was a rise in GFLOPs from 79.32 to 99.00).
 
-**Baseline + All (Masking + Class Weighting + P2 Head):** All three enhancements were combined to check whether they function together more effectively. The integrated model attained the highest precision (0.545) but the lowest recall among all versions (0.402) and the lowest mAP@0.5:0.95 (0.235), implying that it became too much cautious, providing fewer incorrect predictions but overlooking more actual objects.
+**Baseline + All (Masking + Class Weighting + P2 Head):** All three improvements were combined to check whether they work more effectively as a group. The hybrid model attained the highest precision (0.545) but the lowest recall among all other implementations (0.402) and the lowest mAP@0.5:0.95 (0.235) were noted, implying that it became too much cautious. This resulted in predictions that were less incorrect but overlooking more actual objects.
 
 ## Results
 
@@ -61,9 +61,9 @@ YOLOv8m trained on VisDrone2019 (converted to YOLO format) using pretrained weig
 
 **Notes:**
 
-- **Baseline + Masking:** Masking enhanced all main detection metrics without a significant increase in computational expense.
-- **Baseline + Class Weighting:** Class weighting attained the highest recall and mAP@0.5:0.95 among all evaluated models, establishing it as the best overall improvement.
-- **Baseline + P2 Head:** P2 did not enhance overall detection in this setup, probably requiring extended training or larger image dimensions to realize its full potential.
+- **Baseline + Masking:** Masking resulted in improvement of all identification metrics with no evident jump in terms of computation cost.
+- **Baseline + Class Weighting:** Implementations of weights to each class resulted in the greatest recall and mAP@0.5:0.95 among all other models that were evaluated, establishing it as the best overall improvement.
+- **Baseline + P2 Head:** P2 was unable to improvem overall identification in this setup, probably needing more training or greater image size to realize its full potential.
 - **Baseline + All (Masking + Class Weighting + P2 Head):** Combining all improvements did not exceed the performance of the individual techniques, confirming that each improvement should be evaluated independently.
 
 ## How to Run
