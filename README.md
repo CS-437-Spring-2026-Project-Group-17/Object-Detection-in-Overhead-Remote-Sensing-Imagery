@@ -51,13 +51,13 @@ YOLOv8m trained on VisDrone2019 (converted to YOLO format) using pretrained weig
 
 | Metric | Baseline | Baseline + Masking | Baseline + Class Weighting | Baseline + P2 Head | Baseline + All |
 |---|---|---|---|---|---|
-| Precision | 0.521 | 0.543 | 0.539 | 0.544 | 0.545 |
-| Recall | 0.414 | 0.419 | 0.425 | 0.409 | 0.402 |
-| mAP@0.5 | 0.406 | 0.415 | 0.414 | 0.403 | 0.397 |
-| mAP@0.5:0.95 | 0.240 | 0.245 | 0.246 | 0.24 | 0.235 |
-| FPS | 48.70 | 49.14 | 48.95 | 40.61 | 40.54 |
+| Precision | 0.521 | 0.543 | 0.539 | 0.551 | 0.545 |
+| Recall | 0.414 | 0.419 | 0.425 | 0.403 | 0.402 |
+| mAP@0.5 | 0.406 | 0.415 | 0.414 | 0.404 | 0.397 |
+| mAP@0.5:0.95 | 0.240 | 0.245 | 0.246 | 0.240 | 0.235 |
+| FPS | 48.77 | 49.03 | 48.88 | 39.93 | 39.84 |
 | Parameters | 25902640 | 25862110 | 25862110 | 25082496 | 25082496 |
-| GFLOPs | 79.32 | 79.1 | 79.1 | 99 | 99 |
+| GFLOPs | 79.32 | 79.10 | 79.10 | 99.00 | 99.00 |
 
 **Notes:**
 
@@ -67,3 +67,9 @@ YOLOv8m trained on VisDrone2019 (converted to YOLO format) using pretrained weig
 - **Baseline + All (Masking + Class Weighting + P2 Head):** Combining all improvements did not exceed the performance of the individual techniques, confirming that each improvement should be evaluated independently.
 
 ## How to Run
+
+- Clone this repository to your local machine so that the you have the notebook file on local machine.
+- Upload the notebook on kaggle
+- Go to edit notebook. In the inputs section, paste the kaggle link mentioned in the dataset(s) section to the search bar of input. You should see Dataset_DL_Proj_Spring26 dataset. Add that as the input.
+- Select the GPU T4 as accelerator and run the notebook file.
+- Note: Running time of the notebook is approximately 9 to 10 hours on GPU T4
